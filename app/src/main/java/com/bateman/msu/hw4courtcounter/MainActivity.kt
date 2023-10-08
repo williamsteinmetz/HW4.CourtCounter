@@ -14,13 +14,15 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val scoreViewModel: ScoreViewModel by viewModels()
+    val scoreViewModel: ScoreViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        displayForTeamA()
+        displayForTeamB()
     }
 
 
