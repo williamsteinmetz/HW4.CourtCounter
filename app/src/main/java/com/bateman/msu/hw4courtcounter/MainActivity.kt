@@ -3,7 +3,6 @@ package com.bateman.msu.hw4courtcounter
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bateman.msu.hw4courtcounter.databinding.ActivityMainBinding
 import androidx.activity.viewModels
@@ -14,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    val scoreViewModel: ScoreViewModel by viewModels()
+    private val scoreViewModel: ScoreViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,75 +24,43 @@ class MainActivity : AppCompatActivity() {
         displayForTeamB()
     }
 
-
-    fun addOneForTeamA(v: View?) {
-        scoreViewModel.onePointTeamA()
-        displayForTeamA()
+    private fun displayForTeamA() {
+        binding.teamAScore.text = scoreViewModel.displayAScore
     }
 
-    /**
-     * Increase the score for Team A by 2 points.
-     */
-    fun addTwoForTeamA(v: View?) {
-        scoreViewModel.twoPointTeamA()
-        displayForTeamA()
+    private fun displayForTeamB() {
+        binding.teamBScore.text = scoreViewModel.displayBScore
     }
 
-    /**
-     * Increase the score for Team A by 3 points.
-     */
-    fun addThreeForTeamA(v: View?) {
+    fun addThreeForTeamA(view: View) {
         scoreViewModel.threePointTeamA()
         displayForTeamA()
     }
-
-    /**
-     * Increase the score for Team B by 1 point.
-     */
-    fun addOneForTeamB(v: View?) {
-        scoreViewModel.onePointTeamB()
-        displayForTeamB()
+    fun addTwoForTeamA(view: View) {
+        scoreViewModel.twoPointTeamA()
+        displayForTeamA()
     }
-
-    /**
-     * Increase the score for Team B by 2 points.
-     */
-    fun addTwoForTeamB(v: View?) {
+    fun addOneForTeamA(view: View) {
+        scoreViewModel.onePointTeamA()
+        displayForTeamA()
+    }
+    fun addThreeForTeamB(view: View) {
+        scoreViewModel.threePointTeamB()
+        displayForTeamB()}
+    fun addTwoForTeamB(view: View) {
         scoreViewModel.twoPointTeamB()
         displayForTeamB()
     }
-
-    /**
-     * Increase the score for Team B by 3 points.
-     */
-    fun addThreeForTeamB(v: View?) {
-        scoreViewModel.threePointTeamB()
+    fun addOneForTeamB(view: View) {
+        scoreViewModel.onePointTeamB()
         displayForTeamB()
     }
-
-    /**
-     * Resets the score for both teams back to 0.
-     */
-    fun resetScore(v: View?) {
+    fun resetScore(view: View) {
         scoreViewModel.resetScore()
         displayForTeamA()
         displayForTeamB()
     }
 
-
-    /**
-     * Displays the given score for Team A.
-     */
-    fun displayForTeamA() {
-        binding.teamAScore.setText(scoreViewModel.displayAScore)
-    }
-
-    /**
-     * Displays the given score for Team B.
-     */
-    fun displayForTeamB() {
-        binding.teamBScore.setText(scoreViewModel.displayBScore)
-    }
 
 
 }

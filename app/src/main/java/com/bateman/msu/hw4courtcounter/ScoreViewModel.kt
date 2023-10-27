@@ -1,10 +1,8 @@
 package com.bateman.msu.hw4courtcounter
 
-import android.view.View
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
-private const val TAG = "QuizViewModel"
 const val SCORE_TEAM_A = "SCORE_TEAM_A"
 const val SCORE_TEAM_B = "SCORE_TEAM_B"
 
@@ -18,10 +16,10 @@ class ScoreViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel
 
 
     private var scoreTeamA: Int
-        get() = savedStateHandle.get(SCORE_TEAM_A) ?: 0
+        get() = savedStateHandle[SCORE_TEAM_A] ?: 0
         set(value) = savedStateHandle.set(SCORE_TEAM_A, value)
     private var scoreTeamB: Int
-        get() = savedStateHandle.get(SCORE_TEAM_B) ?: 0
+        get() = savedStateHandle[SCORE_TEAM_B] ?: 0
         set(value) = savedStateHandle.set(SCORE_TEAM_B, value)
 
     fun onePointTeamA() {
@@ -48,8 +46,8 @@ class ScoreViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel
 
 
     fun resetScore() {
-        scoreTeamA = 0;
-        scoreTeamB = 0;
+        scoreTeamA = 0
+        scoreTeamB = 0
     }
 
 }
