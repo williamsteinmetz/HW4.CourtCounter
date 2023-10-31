@@ -35,7 +35,7 @@
                 android:gravity="center"
                 android:paddingBottom="24dp"
                 android:text="@string/team_a_score"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="56sp" />
 
             <Button
@@ -96,7 +96,7 @@
                 android:gravity="center"
                 android:paddingBottom="24dp"
                 android:text="@string/team_b_score"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="56sp" />
 
             <Button
