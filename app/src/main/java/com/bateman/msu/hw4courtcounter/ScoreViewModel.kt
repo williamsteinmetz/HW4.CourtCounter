@@ -41,10 +41,7 @@ class ScoreViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel
         scoreTeamB += 3
     }
 
-
-
-
-
+    
     fun resetScore() {
         scoreTeamA = 0
         scoreTeamB = 0
